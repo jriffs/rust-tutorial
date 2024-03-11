@@ -1,0 +1,99 @@
+# Rust is an exciting language.
+# it has a lot of similarites to javascript which is good for people transitioning from 
+# - javascript to Rust. the similarities exist in the following features:
+# - functions, scope, imports, exports, async/await etc.
+# In Rust the scope of a variable is the block of code ({ ... }) in which it is declared.
+# A function is a named block of code that is reusable. they are declared using the "fn" keyword.
+# in rust, execution starts from the "main()" function in the "main.rs" file
+# Shadowing allows a variable to be redeclared in the same scope with the same name.
+# Rust is a compiled language. its compiler is called "RustC".
+# one key feature of rust that separates it from other languages is its memory management feature.
+# - which means it does'nt have a garbage collector. it follows 2 rules:
+# - 1. every value in rust has an owner.
+# - 2. The Ownership rule: there can only be one owner at a time. once a variable is 
+# - declared with a value, it becomes the "Owner" and as a result of this is only allocated one space in 
+# - memory.
+# - 3. once a variable goes out of scope, the value is dropped and can't be reused.
+# The borrowing and refferencing: an entity (variable or function) can either borrow or refference 
+# - the value of another variable, by default variables are immutable in Rust, but can be changed by 
+# - appending the "mut" keyword, so that any entity that borrows it can mutate/change/alter it.
+
+
+# Boolean logic in Rust is the same as in most programming languages.
+# Bitwise operations manipulate bits of a binary number and return results based on specific rules, 
+# - some of the operations and their rules are as follows:
+# - 1.Bitwise AND (&): returns 1 only if the 2 values are 1 else it returns 0
+# - 2.Bitwise OR (|): returns 1 if one of the 2 values is 1 else it returns 0
+# - 3.Bitwise XOR (^): returns 1 if the 2 values are different else it returns 0
+# - 3.Bitwise left shift (<<): converts a number by moving the outtermost binary value to the left 
+# - - by the number of times specified. eg 1<<5 means left shift five times = 32
+# - 4.Bitwise right shift (>>): the same as it's counterpart above, but shifts to the right this time
+
+# in Rust, single quotes '' are for char variables while double quotes are for string literals.
+# a "unit" type is an empty tuple "()" of size 0bytes, used when a function or expression does not 
+# - return any value.
+
+# code execution is done in the RAM of a computer. and the RAM is divided into 2 types:
+# - Stack memory & Heap memory. only value of known sizes (most of the basic types) are pushed to 
+# - the stack memory, while dynamic/unknown sized values (String) are placed in the heap memory.
+# while the main value is stored in the heap memory, a pointer to that value is stored on the stack memory.
+# when variables are assinged to each other, they are basically just copied, but we can't do that with 
+# - dynamic values (in heap memory) unless we explicitly tell the compiler to do so 
+# - because it is costly to copy a value in heap memory.
+# Borrowiing in rust is a feature where you can assign a variable a refference to another variable using
+- - the (&) keyword.
+# There are 2 rules for borrowing:
+# - 1. you can either have one mutable refference or any number of immutable refferences but noy both
+# - 2. refferences must always be valid.
+
+## Flow control in Rust
+# this is basically controlling how the program is executed, normally this is done from top to bottom
+# - line by line, but with the use of features like conditionals and loops we can alter it.
+
+## Traits in Rust
+# - Traits in Rust behave like classes in other languages but are a little different
+# - A trait as the name suggests is a behaviour(s) that can be shared by different types, these behaviours
+# - - are in form of methods.
+# - A trait is declared using the "trait" keyword and methods (and only methods) are defined using only
+# - - their signatures (except for default methods which can be explicitly defined).
+# - there are a few subtopcs under traits which are mentioned below:
+# - 1. Derivable traits: these are traits that you do not need to define or that the compiler automatically
+# - - infers on a given type. some common examples are the clone, copy, debug and the partialEq traits.
+
+## Associated Types
+# Associated types are basically types that are specified in traits which are to be used later. they are 
+used as placeholders for types to be returned by or used in function/method signatures.
+
+## Cargo
+# Crago is the official package manager for the Rust language
+# It Builds, Runs and tests Rust code
+# The command "cargo new 'package-name' " is used to create a new package (simply put - folder with 
+# - resources)
+# when a crate is to be compiled the compiler looks to the crate root which can be the lib.rs
+# - - file or the main.rs file which are both in the src folder
+# A Crate is a unit of a rust program. we have 2 types of crates:
+# - 1. Binary crate:- this is a stand alone (executable) program that can be run on it's own
+# - 2. library crate:- this is a library, basically pieces of reusable code that can be used anywhere
+# to create a library alone you use the "cargo new 'package-name' --lib"
+# a package can have multiple binary crates in it, but can only have one library crate. this can be done 
+# - by puting the files for the binary crates in the bin folder of the src folder.
+# Let's say we create package named "lib-and-binary-test" we can we can make it have both types of crates
+# - so the src folder will have the following structure:
+# src 
+    │   lib.rs
+    │   main.rs
+    │
+    └───bin
+            main1.rs
+            main2.rs
+# in the above example the package contains 1 library crate (whose root is the lib.rs file), 
+# - and 3 binary crates namely lib-and-binary-test, main1 and main2 
+# (whose roots are the main.rs, main1.rs and main2.rs files respectively). this is because when we create
+# - a package, a crate with the same name as the package (in this case lib-and-binary-test) is created.
+
+##Lifetimes
+# this is a featuer peculiar to only Rust, this feature is used by the borrow checker to ensure that 
+# - refferences remain in scope and avoid dangling refferences (refferences that point to no value).
+# they are annotated in functions using the "'" syntax and are usually one character e.g ('a)
+
+
