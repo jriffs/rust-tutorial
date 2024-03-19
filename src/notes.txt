@@ -95,5 +95,9 @@ used as placeholders for types to be returned by or used in function/method sign
 # this is a featuer peculiar to only Rust, this feature is used by the borrow checker to ensure that 
 # - refferences remain in scope and avoid dangling refferences (refferences that point to no value).
 # they are annotated in functions using the "'" syntax and are usually one character e.g ('a)
+# The "static" keyword is used to make static constants. the difference between a constant declared with
+# - the static keyword and that declared with the "const" keyword is that the former always remains in the
+# - same position in memory, while the later can change position due to being "in-lined" (this means the 
+# - value of the constant is copied when used as function arguments).
 
 

@@ -163,5 +163,17 @@ fn char_example() {
     println!("{}", size_of_val(&c)); // should print 4 which is the size of all unicode characters
 }
 
+fn destructuring_tuple_struct() {
+    // the code below is how your would destructure a tupke struct
+    struct Point(i32, i32);
+
+    let point = Point(3, 5);
+
+    // Destructuring the tuple struct
+    let Point(x, y) = point;
+
+    println!("x: {}, y: {}", x, y);
+}
+
 
 

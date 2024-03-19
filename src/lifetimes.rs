@@ -1,6 +1,6 @@
 pub fn lifetimes_example1() {
     // lifetimes are annotated just like generics, and you can have both on a fuction declaratioin
-    // the code below is simply saying that the variables x and y must outlive the function
+    // the code below is simply saying that the variables x and y must out-live the function
     // meaning that the arguments passed into the function must be heigher in scope than the function
     fn pass_x<'a, 'b, T>(x: &'a T, y: &'b T) -> &'a T {
         x
