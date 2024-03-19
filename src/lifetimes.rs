@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 pub fn lifetimes_example1() {
     // lifetimes are annotated just like generics, and you can have both on a fuction declaratioin
     // the code below is simply saying that the variables x and y must out-live the function
@@ -86,6 +88,56 @@ pub fn lifetimes_example4() {
         println!("{:?}", example); // this is valid cuz the 2 lifetimes are valid in this scope
     }
     // println!("{:?}", example); // this will throw an error cuz lifetime b isn't valid in this scope
+}
+
+pub fn lifetimes_example5() {
+    // static lifetimes can be coereced into shorter lifetimes
+    static NUM: i32 = 10; //you have to specify type when initializing constants
+
+    fn coerced_lifetime<'a>(_: &'a str) -> &'a i32 {&NUM}
+
+    {
+        let string1: &'static str = "hello"; // the same thing without annotating the 'static
+        let coerced_value = coerced_lifetime(string1);
+
+        println!("{}", coerced_value); // now even though the value coerced_value refferences is of 
+        // static lifetime, it's lifetime is no longer static but 'a 
+    }
+    println!("{}", NUM);
+}
+
+pub fn lifetimes_example6() {
+    // using the static lifetime as a trait bound means that the type does not contain any non-static 
+    // refferences or refferences to any non-static lifetime values.
+    static X: i32 = 10;
+    const Y: i32 = 20;
+    let v = 30;
+
+    fn print_it<T: Debug + 'static>(input: T) {
+        println!("{:?}", input);
+    }
+    // below is the same as above, just different syntax
+    fn print_it1(input: impl Debug + 'static) {
+        println!("{:?}", input);
+    }
+
+    fn print_it2<T: Debug + 'static>(input: &T) {
+        println!("{:?}", input);
+    }
+
+    {
+        let i = 5; // owned data and contains no reffrences, this just means that the current scope "owns" the data, so in the
+        // context of the current scope it is of static lifetime 
+
+        print_it(i); // no problems here
+        // print_it1(&i); // would panic
+        print_it1(&X); // I think this works because X has static lifetime and a reference to X 
+        // will also have Static lifetime 
+        print_it1(&Y); // This is the same as above since they're both constants
+        // print_it1(&v); //
+        
+        print_it2(&i); // no problems here
+    }
 }
 
 

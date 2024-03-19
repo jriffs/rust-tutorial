@@ -37,7 +37,7 @@ fn main() {
     to treat whatever is in the parentheses as a string, basically converting the variable to a 
     string literal */        
     println!("success ...");
-    lifetimes::lifetimes_example3();
+    lifetimes::lifetimes_example6();
 }
 
 // functions are declared using the "fn" keyword.
