@@ -25,6 +25,7 @@ mod typecasting;
 mod error_handling;
 mod display_trait;
 mod lifetimes;
+mod closures;
 fn main() {
     // let x: i32; // using uninitialized variables will result in an error 
     let x: i32 = 5;
@@ -37,7 +38,7 @@ fn main() {
     to treat whatever is in the parentheses as a string, basically converting the variable to a 
     string literal */        
     println!("success ...");
-    lifetimes::lifetimes_example6();
+    closures::closures_example_10();
 }
 
 // functions are declared using the "fn" keyword.

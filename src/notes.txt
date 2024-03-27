@@ -91,7 +91,7 @@ used as placeholders for types to be returned by or used in function/method sign
 # (whose roots are the main.rs, main1.rs and main2.rs files respectively). this is because when we create
 # - a package, a crate with the same name as the package (in this case lib-and-binary-test) is created.
 
-##Lifetimes
+## Lifetimes
 # this is a featuer peculiar to only Rust, this feature is used by the borrow checker to ensure that 
 # - refferences remain in scope and avoid dangling refferences (refferences that point to no value).
 # they are annotated in functions using the "'" syntax and are usually one character e.g ('a)
@@ -99,5 +99,11 @@ used as placeholders for types to be returned by or used in function/method sign
 # - the static keyword and that declared with the "const" keyword is that the former always remains in the
 # - same position in memory, while the later can change position due to being "in-lined" (this means the 
 # - value of the constant is copied when used as function arguments).
+
+## Closures
+# this is basically a nameless function that can makes use of data from it's lexical environment
+# that just simply means that it can have access to Variables, data or References that are in the same 
+# - scope as it is.
+# it has the following syntax |args| -> {closure body}
 
 
