@@ -106,4 +106,13 @@ used as placeholders for types to be returned by or used in function/method sign
 # - scope as it is.
 # it has the following syntax |args| -> {closure body}
 
-
+## Iterators
+# this is basically a pattern that allows us perform tasks on a SEQUENCE of items IN TURN
+# the for loop uses the iterator pattern and is the most basic example
+# the 'into_iter()' method is used to create an iterator
+# every iterator implements the iterator trait which defines a next method
+# the 'into_iter' method is not the only way to create iterators in Rust, 
+# - we also have the iter and iter_mut methods and the 3 do things differently
+# into_iter: moves the members of the collection into the iterator so it can no longer be used
+# iter: takes a reffernce of each member of the collection so it can be used later on
+# iter_mut: takes mutable reffernces of the members so that the collection can be changed
